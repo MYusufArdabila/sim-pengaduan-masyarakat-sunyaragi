@@ -1,0 +1,124 @@
+%% FILE INI BERISI 4 DIAGRAM MERMAID YANG MERANGKUM SELURUH PERENCANAAN PROYEK.
+%% CATATAN: Jika viewer/plugin Anda (seperti VSCode Mermaid Preview) hanya bisa membaca 1 diagram per file, 
+%% silakan copy-paste masing-masing bagian (mulai dari deklarasi seperti 'mindmap', 'gantt', dll) secara terpisah.
+
+%% =========================================================================
+%% DIAGRAM 1: MINDMAP (RINGKASAN KESELURUHAN ASPEK MANAJEMEN PROYEK)
+%% =========================================================================
+mindmap
+  root(("SIM-PENGADUAN\nKelurahan Sunyaragi"))
+    ["1. PROJECT OVERVIEW"]
+      ("Tujuan (SMART)")
+        ["Specific: Web App Pengaduan Masyarakat"]
+        ["Measurable: SLA Respons max 24 Jam"]
+        ["Achievable: Laravel 12 & Bootstrap 5"]
+        ["Relevant: Kepuasan warga meningkat"]
+        ["Time-bound: Go-Live dalam 3 Minggu"]
+      ("Ruang Lingkup")
+        ["In-Scope: Frontend, Backend, Dashboard"]
+        ["Out-Scope: Mobile Native App (Android/iOS)"]
+
+    ["2. STAKEHOLDER"]
+      ("Sponsor")
+        ["Lurah Sunyaragi (High Power/Interest)"]
+      ("Eksekutor")
+        ["Tim IT (High Power/Low Interest)"]
+      ("User & Pelapor")
+        ["Petugas Kelurahan & Warga"]
+
+    ["3. REQUIREMENT"]
+      ("Functional")
+        ["Registrasi NIK, Lapor Foto/GPS, Tracking"]
+      ("Non-Functional")
+        ["Mobile-First, Load < 3 Detik, Uptime 99%"]
+
+    ["4. TEKNOLOGI"]
+      ["Backend: Laravel 12"]
+      ["Frontend: Bootstrap 5.3"]
+      ["Database: MySQL"]
+
+    ["5. RESOURCE & RISK"]
+      ("Tim")
+        ["1 PM, 1 UI/UX, 2 Dev, 1 QA"]
+      ("Risiko Utama")
+        ["Warga enggan pakai -> Sosialisasi"]
+        ["Data Bocor -> Enkripsi Bcrypt & RBAC"]
+        ["Server Down -> Cloud VPS"]
+
+    ["6. QUALITY & METODOLOGI"]
+      ("Standar")
+        ["Agile Scrum (1 Minggu Sprint)"]
+      ("KPI")
+        ["Zero Critical Bug, 100% UAT Pass"]
+
+    ["7. BONUS AI & MODERN TECH"]
+      ["NLP Auto-Categorization"]
+      ["Sentiment Analysis Keluhan"]
+      ["Smart Auto-Reply Chatbot"]
+
+
+%% =========================================================================
+%% DIAGRAM 2: GANTT CHART (WBS & TIMELINE SCHEDULING 3 MINGGU)
+%% =========================================================================
+gantt
+    title Jadwal Implementasi Proyek SIM-PENGADUAN (3 Minggu)
+    dateFormat  YYYY-MM-DD
+    
+    section 1. Initiation & Planning
+    Requirement Gathering    :a1, 2026-05-01, 1d
+    Project Planning         :a2, after a1, 1d
+    
+    section 2. Design (UI/UX & DB)
+    UI/UX Design & Figma     :a3, after a2, 2d
+    Database Design & ERD    :a4, after a2, 1d
+    
+    section 3. Development (Coding)
+    Setup Env & Auth         :a5, after a3, 2d
+    Modul Frontend (Warga)   :a6, after a5, 4d
+    Modul Backend (Petugas)  :a7, after a6, 3d
+    Dashboard & Report       :a8, after a7, 2d
+    
+    section 4. Testing & QA
+    QA & Bug Fixing          :a9, after a8, 2d
+    UAT dengan Kelurahan     :a10, after a9, 1d
+    
+    section 5. Deployment
+    Deployment & Go-Live     :a11, after a10, 1d
+    Training Petugas         :a12, after a11, 1d
+
+
+%% =========================================================================
+%% DIAGRAM 3: USE CASE DIAGRAM (INTERAKSI USER & SISTEM)
+%% =========================================================================
+usecaseDiagram
+    actor Masyarakat
+    actor Petugas
+    actor Admin
+    
+    Masyarakat --> (Registrasi / Login NIK)
+    Masyarakat --> (Buat Laporan Pengaduan)
+    Masyarakat --> (Lacak Status Laporan)
+    
+    Petugas --> (Verifikasi Laporan Masuk)
+    Petugas --> (Ubah Status & Beri Tanggapan)
+    
+    Admin --> (Manajemen User & Role)
+    Admin --> (Lihat Dashboard Statistik)
+    Admin --> (Export Laporan PDF/Excel)
+
+
+%% =========================================================================
+%% DIAGRAM 4: ARSITEKTUR SOLUSI (FLOWCHART MVC)
+%% =========================================================================
+graph TD
+    Client[Browser HP/Laptop Warga] -->|HTTP/HTTPS Akses| WebServer[Nginx/Apache Server]
+    WebServer --> Laravel[Aplikasi Laravel 12]
+    
+    subgraph Pola Arsitektur MVC
+        Laravel --> Controllers[Controllers - Business Logic]
+        Controllers --> Models[Eloquent ORM Models]
+        Models <--> Database[(MySQL Database)]
+        Controllers --> Views[Blade Templates + Bootstrap 5]
+    end
+    
+    Views -->|Render HTML/CSS/JS| Client

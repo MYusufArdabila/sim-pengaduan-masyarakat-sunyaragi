@@ -80,7 +80,7 @@
                 @if($complaint->photo)
                 <div class="mb-4">
                     <div class="info-label mb-2">Foto Bukti</div>
-                    <img src="{{ Storage::url($complaint->photo) }}"
+                    <img src="{{ asset($complaint->photo) }}"
                         class="img-fluid rounded-3 shadow-sm"
                         style="max-height:350px; cursor:pointer;"
                         onclick="window.open(this.src)"
@@ -98,7 +98,7 @@
                             <div class="fw-semibold small">File dokumen tersedia</div>
                             <div class="text-muted" style="font-size:.75rem;">Diunggah oleh Admin Kelurahan</div>
                         </div>
-                        <a href="{{ Storage::url($complaint->finished_file) }}"
+                        <a href="{{ asset($complaint->finished_file) }}"
                             target="_blank" download
                             class="btn btn-success btn-sm rounded-pill px-3">
                             <i class="bi bi-download me-1"></i>Unduh

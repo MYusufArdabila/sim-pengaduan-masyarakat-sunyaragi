@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Setting;
-use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
 {
@@ -24,12 +23,8 @@ class SettingController extends Controller
         ]);
 
         if ($request->hasFile('logo')) {
-            $oldLogo = Setting::get('logo_path');
-            if ($oldLogo) {
-                Storage::disk('public')->delete($oldLogo);
-            }
-            $path = $request->file('logo')->store('settings', 'public');
-            Setting::set('logo_path', $path);
+            $file = $request->file('logo');
+            $file->move(public_path('images'), 'logo_sunyaragi.jpeg');
         }
 
         $fields = ['nama_kelurahan', 'alamat', 'telepon', 'email_kelurahan'];

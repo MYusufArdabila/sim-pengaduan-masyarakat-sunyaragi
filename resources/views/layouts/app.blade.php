@@ -272,12 +272,7 @@
 <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
         <div class="sidebar-logo">
-            @php $logoPath = \App\Models\Setting::get('logo_path'); @endphp
-            @if($logoPath)
-                <img src="{{ Storage::url($logoPath) }}" alt="Logo Kelurahan">
-            @else
-                <div class="logo-placeholder"><i class="bi bi-bank2"></i></div>
-            @endif
+            <img src="{{ asset('images/logo_sunyaragi.jpeg') }}" alt="Logo Kelurahan">
             <div>
                 <div class="app-name">Pengaduan Masyarakat</div>
                 <div class="app-sub">{{ \App\Models\Setting::get('nama_kelurahan', 'Kelurahan Sunyaragi') }}</div>
@@ -366,6 +361,11 @@
                         {{ Auth::user()->email }}
                     </span></li>
                     <li><hr class="dropdown-divider"></li>
+                    <li>
+                        <a href="{{ route('password.change') }}" class="dropdown-item">
+                            <i class="bi bi-key me-2"></i>Ubah Password
+                        </a>
+                    </li>
                     <li>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf

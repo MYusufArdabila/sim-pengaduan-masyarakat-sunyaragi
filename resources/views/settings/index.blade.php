@@ -28,15 +28,7 @@
             <div class="card settings-card p-4 h-100">
                 <h6 class="fw-bold mb-3">Logo Kelurahan</h6>
                 <div class="mb-3 text-center">
-                    @php $logoPath = \App\Models\Setting::get('logo_path'); @endphp
-                    @if($logoPath)
-                        <img src="{{ Storage::url($logoPath) }}" class="logo-preview" id="logoPreview" alt="Logo">
-                    @else
-                        <div class="logo-placeholder-box mx-auto" id="logoPlaceholder">
-                            <i class="bi bi-building"></i>
-                        </div>
-                        <img src="" class="logo-preview d-none mx-auto" id="logoPreview" alt="Logo">
-                    @endif
+                    <img src="{{ asset('images/logo_sunyaragi.jpeg') }}" class="logo-preview" id="logoPreview" alt="Logo">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Unggah Logo Baru</label>

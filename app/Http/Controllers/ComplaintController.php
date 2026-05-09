@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Complaint;
 use App\Models\ComplaintCategory;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class ComplaintController extends Controller
 {
@@ -51,7 +50,10 @@ class ComplaintController extends Controller
         $data['status']      = 'Menunggu';
 
         if ($request->hasFile('photo')) {
-            $data['photo'] = $request->file('photo')->store('complaints/photos', 'public');
+            $file = $request->file('photo');
+            $filename = time() . '_' . preg_replace('/[^A-Za-z0-9\-.]/', '', $file->getClientOriginalName());
+            $file->move(public_path('images/complaints'), $filename);
+            $data['photo'] = 'images/complaints/' . $filename;
         }
 
         Complaint::create($data);
@@ -88,11 +90,15 @@ class ComplaintController extends Controller
         ]);
 
         // Hapus file lama jika ada
-        if ($complaint->finished_file) {
-            Storage::disk('public')->delete($complaint->finished_file);
+        if ($complaint->finished_file && file_exists(public_path($complaint->finished_file))) {
+            unlink(public_path($complaint->finished_file));
         }
 
-        $path = $request->file('finished_file')->store('complaints/files', 'public');
+        $file = $request->file('finished_file');
+        $filename = time() . '_finish_' . preg_replace('/[^A-Za-z0-9\-.]/', '', $file->getClientOriginalName());
+        $file->move(public_path('images/files'), $filename);
+        $path = 'images/files/' . $filename;
+
         $complaint->update([
             'finished_file' => $path,
             'status'        => 'Selesai',

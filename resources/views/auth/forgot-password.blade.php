@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | SIM Pengaduan Kelurahan Sunyaragi</title>
-    <meta name="description" content="Masuk ke Sistem Informasi Pengaduan Masyarakat Kelurahan Sunyaragi, Kota Cirebon.">
+    <title>Lupa Password | SIM Pengaduan Kelurahan Sunyaragi</title>
+    <meta name="description" content="Halaman Lupa Password Sistem Informasi Pengaduan Masyarakat Kelurahan Sunyaragi, Kota Cirebon.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -104,11 +104,6 @@
             object-fit: cover;
         }
 
-        .logo-shield .logo-icon {
-            font-size: 1.8rem;
-            color: #fff;
-        }
-
         .logo-info h6 {
             font-size: .9rem;
             font-weight: 700;
@@ -205,9 +200,10 @@
             font-size: .875rem;
             color: #8898aa;
             margin-bottom: 1.8rem;
+            line-height: 1.5;
         }
 
-        /* ── Form labels ── */
+        /* ── Form elements ── */
         .f-label {
             display: block;
             font-size: .82rem;
@@ -216,7 +212,6 @@
             margin-bottom: .45rem;
         }
 
-        /* ── Input wrapper ── */
         .field-wrap {
             position: relative;
             margin-bottom: 1.1rem;
@@ -235,7 +230,7 @@
 
         .field-wrap .f-input {
             width: 100%;
-            padding: .7rem 2.6rem .7rem 2.6rem;
+            padding: .7rem 2.6rem;
             border: 1.5px solid #e2e8f0;
             border-radius: 10px;
             font-size: .9rem;
@@ -254,60 +249,8 @@
             box-shadow: 0 0 0 3.5px rgba(26, 95, 203, 0.13);
         }
 
-        /* eye toggle */
-        .toggle-eye {
-            position: absolute;
-            right: .95rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #9ca3af;
-            font-size: 1.05rem;
-            cursor: pointer;
-            padding: 0;
-            z-index: 2;
-            line-height: 1;
-        }
-        .toggle-eye:hover { color: #1a5fcb; }
-
-        /* ── Remember / forgot row ── */
-        .extras-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.4rem;
-        }
-
-        .check-wrap {
-            display: flex;
-            align-items: center;
-            gap: .45rem;
-        }
-
-        .check-wrap input[type="checkbox"] {
-            width: 16px;
-            height: 16px;
-            accent-color: #1a5fcb;
-            cursor: pointer;
-        }
-
-        .check-wrap label {
-            font-size: .83rem;
-            color: #4b5563;
-            cursor: pointer;
-        }
-
-        .link-forgot {
-            font-size: .83rem;
-            color: #1a5fcb;
-            font-weight: 500;
-            text-decoration: none;
-        }
-        .link-forgot:hover { text-decoration: underline; }
-
         /* ── Buttons ── */
-        .btn-login {
+        .btn-reset {
             width: 100%;
             padding: .8rem;
             font-size: .95rem;
@@ -320,35 +263,20 @@
             font-family: inherit;
             letter-spacing: .01em;
             transition: background .2s, transform .15s, box-shadow .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            margin-bottom: 1rem;
         }
-        .btn-login:hover {
+        .btn-reset:hover {
             background: #1044a8;
             transform: translateY(-1px);
             box-shadow: 0 8px 22px rgba(26,95,203,0.38);
         }
-        .btn-login:active { transform: translateY(0); }
+        .btn-reset:active { transform: translateY(0); }
 
-        /* ── OR divider ── */
-        .or-row {
-            display: flex;
-            align-items: center;
-            gap: .75rem;
-            margin: 1.3rem 0;
-        }
-        .or-row::before,
-        .or-row::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: #e5e7eb;
-        }
-        .or-row span {
-            font-size: .82rem;
-            color: #9ca3af;
-        }
-
-        /* ── Register button ── */
-        .btn-register {
+        .btn-back {
             width: 100%;
             padding: .78rem;
             font-size: .9rem;
@@ -366,38 +294,10 @@
             text-decoration: none;
             transition: background .2s, color .2s, transform .15s;
         }
-        .btn-register:hover {
+        .btn-back:hover {
             background: #ebf2ff;
             color: #1044a8;
             transform: translateY(-1px);
-        }
-
-        /* ── Footer note ── */
-        .footer-note {
-            text-align: center;
-            font-size: .84rem;
-            color: #8898aa;
-            margin-top: .9rem;
-        }
-        .footer-note a {
-            color: #1a5fcb;
-            font-weight: 600;
-            text-decoration: none;
-        }
-        .footer-note a:hover { text-decoration: underline; }
-
-        /* ── Error alert ── */
-        .err-box {
-            display: flex;
-            align-items: center;
-            gap: .5rem;
-            background: #fff5f5;
-            border: 1px solid #fecaca;
-            border-radius: 10px;
-            color: #b91c1c;
-            font-size: .84rem;
-            padding: .65rem .9rem;
-            margin-bottom: 1.1rem;
         }
 
         /* ══════════════════════════════════
@@ -463,99 +363,43 @@
 
     {{-- ═══════════════ RIGHT PANEL ═══════════════ --}}
     <div class="panel-right">
-        <h2 class="welcome-title">Selamat Datang Kembali! </h2>
-        <p class="welcome-sub">Silakan masuk untuk melanjutkan</p>
+        <h2 class="welcome-title">Lupa Password?</h2>
+        <p class="welcome-sub">
+            Masukkan alamat email Anda yang terdaftar. Kami akan mengirimkan tautan untuk mereset password Anda.
+        </p>
 
-        {{-- Error message --}}
-        @if($errors->any())
-            <div class="err-box">
-                <i class="bi bi-exclamation-circle-fill"></i>
-                {{ $errors->first() }}
-            </div>
-        @endif
-
-        <form action="{{ route('login') }}" method="POST" novalidate>
+        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Instruksi reset password telah dikirim ke email Anda. Silakan periksa kotak masuk atau folder spam.');">
             @csrf
-
-            {{-- Email --}}
-            <label for="login_email" class="f-label">Email atau Username</label>
+            
+            <label for="email" class="f-label">Alamat Email</label>
             <div class="field-wrap">
-                <i class="bi bi-person f-icon"></i>
+                <i class="bi bi-envelope f-icon"></i>
                 <input
                     type="email"
-                    class="f-input @error('email') is-invalid @enderror"
-                    id="login_email"
+                    class="f-input"
+                    id="email"
                     name="email"
-                    value="{{ old('email') }}"
                     required
                     autofocus
-                    autocomplete="email"
                     placeholder="contoh@email.com">
             </div>
 
-            {{-- Password --}}
-            <label for="login_password" class="f-label">Password</label>
-            <div class="field-wrap">
-                <i class="bi bi-lock f-icon"></i>
-                <input
-                    type="password"
-                    class="f-input"
-                    id="login_password"
-                    name="password"
-                    required
-                    autocomplete="current-password"
-                    placeholder="Masukkan password">
-                <button type="button" class="toggle-eye" id="toggleEye" aria-label="Tampilkan password">
-                    <i class="bi bi-eye" id="eyeIcon"></i>
-                </button>
-            </div>
-
-            {{-- Remember + Forgot --}}
-            <div class="extras-row">
-                <div class="check-wrap">
-                    <input type="checkbox" name="remember" id="remember_me">
-                    <label for="remember_me">Ingat saya</label>
-                </div>
-                <a href="{{ route('password.request') }}" class="link-forgot">Lupa password?</a>
-            </div>
-
-            {{-- Masuk button --}}
-            <button type="submit" class="btn-login" id="btnMasuk">
-                Masuk
+            <button type="submit" class="btn-reset">
+                <i class="bi bi-send"></i>
+                Kirim Tautan Reset
             </button>
         </form>
 
-        {{-- Divider --}}
-        <div class="or-row"><span>atau</span></div>
-
-        {{-- Register button --}}
-        <a href="{{ route('register') }}" class="btn-register" id="btnDaftar">
-            <i class="bi bi-person-plus"></i>
-            Daftar Akun Baru
+        {{-- Back button --}}
+        <a href="{{ route('login') }}" class="btn-back mt-3">
+            <i class="bi bi-arrow-left"></i>
+            Kembali ke Login
         </a>
 
-        {{-- Footer --}}
-        <p class="footer-note">
-            Belum punya akun? <a href="{{ route('register') }}">Daftar di sini</a>
-        </p>
     </div>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    // Password toggle
-    document.getElementById('toggleEye').addEventListener('click', function () {
-        var inp  = document.getElementById('login_password');
-        var icon = document.getElementById('eyeIcon');
-        if (inp.type === 'password') {
-            inp.type = 'text';
-            icon.className = 'bi bi-eye-slash';
-        } else {
-            inp.type = 'password';
-            icon.className = 'bi bi-eye';
-        }
-    });
-</script>
 </body>
 </html>

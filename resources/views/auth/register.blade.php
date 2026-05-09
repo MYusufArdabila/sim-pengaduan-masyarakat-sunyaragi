@@ -62,12 +62,7 @@
 <body>
     <div class="register-wrapper">
         <div class="register-header">
-            @php $logoPath = \App\Models\Setting::get('logo_path'); @endphp
-            @if($logoPath)
-                <img src="{{ Storage::url($logoPath) }}" style="width:60px;height:60px;border-radius:14px;object-fit:cover;margin-bottom:.75rem;" alt="Logo">
-            @else
-                <div class="logo-placeholder"><i class="bi bi-bank2"></i></div>
-            @endif
+            <img src="{{ asset('images/logo_sunyaragi.jpeg') }}" style="width:60px;height:60px;border-radius:14px;object-fit:cover;margin-bottom:.75rem;" alt="Logo">
             <div class="register-title">Daftar Akun Warga</div>
             <div class="register-subtitle">{{ \App\Models\Setting::get('nama_kelurahan', 'Kelurahan Sunyaragi') }}</div>
         </div>

@@ -31,12 +31,7 @@
 @section('content')
 {{-- Header Profil --}}
 <div class="profil-header">
-    @php $logoPath = \App\Models\Setting::get('logo_path'); @endphp
-    @if($logoPath)
-        <img src="{{ Storage::url($logoPath) }}" class="profil-logo" alt="Logo">
-    @else
-        <div class="profil-logo-ph mx-auto"><i class="bi bi-bank2"></i></div>
-    @endif
+    <img src="{{ asset('images/logo_sunyaragi.jpeg') }}" class="profil-logo" alt="Logo">
     <h4 class="fw-bold mb-1">{{ \App\Models\Setting::get('nama_kelurahan', 'Kelurahan Sunyaragi') }}</h4>
     <div style="opacity:.75;font-size:.9rem;">Sistem Informasi Pengaduan Masyarakat</div>
     <div style="opacity:.6;font-size:.8rem;">Kota Cirebon, Jawa Barat</div>

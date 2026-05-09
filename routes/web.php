@@ -19,6 +19,9 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
     Route::post('/register', [AuthController::class, 'register']);
+    
+    // Lupa Password (Simple Static Page)
+    Route::view('/forgot-password', 'auth.forgot-password')->name('password.request');
 });
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -42,6 +45,10 @@ Route::middleware('auth')->group(function () {
 
     // Show detail (setelah create agar tidak bentrok)
     Route::get('/complaints/{complaint}', [ComplaintController::class, 'show'])->name('complaints.show');
+
+    // Ubah Password (semua user login)
+    Route::get('/ubah-password', [AuthController::class, 'showChangePassword'])->name('password.change');
+    Route::post('/ubah-password', [AuthController::class, 'changePassword'])->name('password.update');
 
     // Admin only routes
     Route::middleware('role:admin')->group(function () {
